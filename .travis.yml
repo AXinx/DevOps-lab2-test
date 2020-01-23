@@ -1,32 +1,40 @@
-sudo: required
+sudo: required 
 services:
-- docker
-language: java
-matrix:
-  include:
-  - jdk: openjdk8
+  - docker
+# ref: https://docs.travis-ci.com/user/languages/python
+language: python
+python:
+  - "3.6"
+  - "3.7"
+
+
 before_install:
-- docker version
-- docker info
+  - docker version
+  - docker info
 install:
-- npm install newman
+    - npm install newman
+    - pip install -r requirements.txt
+    - pip install -r test-requirements.txt
+    - pip install nose
+    - pip install Flask-Testing
 before_script:
-- node --version
-- npm --version
-- node_modules/.bin/newman --version
+    - node --version
+    - npm --version
+    - node_modules/.bin/newman --version  
+    
 script:
-- docker run --name student_api -d -t -p 127.0.0.1:8080:8080 xinryxx/cheers2019:1.0.0
+- python -m unittest discover
+- docker build -t swagger-spring-example:1.0.0 .
+- docker run --name example_api -d -t -p 127.0.0.1:8080:8080 swagger-spring-example:1.0.0
 - docker ps
 - count=0 && until $(curl --output /dev/null --silent --head --fail http://localhost:8080);
   do printf '.' && sleep 3 && count=$((count+1)) && if [ $count -gt 5 ]; then break;
   fi; done
 - docker logs example_api
 - node_modules/.bin/newman run tests/postman_collection.json -e tests/postman_environment.json
+
 after_success:
-- docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker tag my_docker_repo/swagger-spring-example:1.0.0 my_docker_repo/swagger-spring-example:1.0.0
-- docker push my_docker_repo/swagger-spring-example:1.0.0
-env:
-  global:
-  - secure: uxVUiMUOioVT7WLIM3QT6ppSmEPfJUNgurrkdbPHK0NUZ6irnHxKTzcy3lpRvmL+qgkzCEg+OBiILXlvhcAf5YosULKFHMIrAZaI3BujZ7erMktiXXU99fQajhSndwBmvdtiGGHXdMxV7U8y5ltPkU4SWooTpnMf/RmbIUE24291ZLuUPJ9ASuwhga9nxE/DVLHGlsj63tXa8i4EIz9VdWBgUPC1VREMiGVOTooJLd6Mf+wDmAOY/lgp79IQ+WgZcfBePWPgAruchGx8Y4TObziuAY3DD52sTL+WoEAjZsXdoyHCVAtjS8RHi7kHfYmE2njpOTQMS/jWSDcRmPDXqAPE60/aJXSrjSFd0dGTEUoX5+2z77wM4tlhek9BG2NUT2xuzPRU/6aSyyPzDoakqLVq7+pja1TADrotYyxwcggrwGVSHWTorrPgn1+I/mTKWw6fB/cEa8pabAoj8OVgP3aZLNjZ/+TM+ALTDiabY5FzPchUG9rylC0UqvA2jr1NOM2MU+cJq0wOMiDlBkbpLHxl1m64yo/6rI/x+QjccIeWbzF9m0z8TBT2oj9sag1+PIRIAy6yWKtRC2osxImu1WsC1MKFKU5P4B5wZ7dV3FeCQIUex4anGMtUhZAEJVH42CS0L42/j/SbCgUWC4cLjeUmUY+LNb+/xvmL5hltu9s=
-  - secure: HwsSr4HvZOA/NMrisF7cT3cRmzvKIXEXeLppy7Zt57yucZyLBasTVWkUeO5oLDSpndOiPesTKmwylgI06rBxX0gpx5hzeJIriCuvrKBoLNgQ12j7KRgU+/NstlMJSDYo/ibKXwjG63Cj0ADJEf9q6QqR56PVP7dYlC89/s6i1TMLGlKuRTzsaeoWTs3sdpmMbmdHHqLebQzJ6cEoqri3FoScNzqeOWX4vUEY2leo02uu9M401nw1TkCPsXZo2meu1t/y4Zg6rjoi83Lkg9GimIwcJwD6B+l3gZLBYDK60aawX1np3SyI/6TMu44cgDw4PG2oywABRHdvu65F8WKJpFEu77v4/NHJs25ZTZj9fuCSddWqA8Bo83eqTyy5DDcU6cbCz4qfIhRSmdW2f6jUNdGk+0XnrItem2gAdALPdDmqXwdfI8TgjNfHKR7swK6n5ILaV7RZbe8HL3QOhDetOKa7mSoiqBfw2MKDPS4Ros7qjGrYE6dFLL2/Jjv5ZT20KEMc4vhx3VMZKZR1271TihDJBwUgZ2RTesi9xJX0/h70yr/STYRhKvdmzvUzQ24WwhkUUUqr5533JaAyfg7yu4r4d0yi9aVeSRqpfRmlldT5BF7B1fPxOpBgiAn/JPTEeJ15IFPAHp6GpCofKZUdf13o/Tg7M8TtClkG2vE9gyE=
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker tag my_docker_reposetory/swagger_server my_docker_reposetory/swagger_server
+  - docker push my_docker_reposetory/swagger_server
+
