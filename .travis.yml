@@ -14,6 +14,7 @@ install:
     - npm install newman
     - pip install -r requirements.txt
     - pip install -r test-requirements.txt
+    - pip install names
     - pip install nose
     - pip install Flask-Testing
 before_script:
