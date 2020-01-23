@@ -1,0 +1,10 @@
+{
+	"info": {
+		"_postman_id": "0e9d1fba-cfdb-4566-a0e3-8a2602b4de57",
+		"name": "DevOps CI test",
+		"description": "Test DevOps lab2 homework CI part",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [],
+	"protocolProfileBehavior": {}
+}
