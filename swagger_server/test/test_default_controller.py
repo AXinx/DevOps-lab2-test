@@ -69,7 +69,9 @@ class TestDefaultController(BaseTestCase):
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
+        print(response.read())
         student_id = (response.json)
+        print(student_id)
 
         query_string = [('math', 9)]
         response = self.client.open(
