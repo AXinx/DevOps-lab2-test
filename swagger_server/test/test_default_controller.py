@@ -72,7 +72,6 @@ class TestDefaultController(BaseTestCase):
         student_id = (response.json)
         print('*******')
         print(student_id)
-        print(response.data.decode('utf-8'))
         print('########')
 
         query_string = [('math', 9)]
@@ -83,6 +82,8 @@ class TestDefaultController(BaseTestCase):
         print('second query')
         print(response)
         print(response.data.decode('utf-8'))
+        print(resonse.is_json)
+        print(response.json)
         print('end')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
