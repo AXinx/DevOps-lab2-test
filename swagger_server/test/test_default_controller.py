@@ -72,7 +72,7 @@ class TestDefaultController(BaseTestCase):
         student_id = (response.json)
         print('*******')
         print(student_id)
-        print(response)
+        print(response.data.decode('utf-8'))
         print('########')
 
         query_string = [('math', 9)]
@@ -80,6 +80,10 @@ class TestDefaultController(BaseTestCase):
             '/service-api/student/{student_id}'.format(student_id=student_id),
             method='GET',
             query_string=query_string)
+        print('second query')
+        print(response)
+        print(response.data.decode('utf-8'))
+        print('end')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
         self.assertTrue(response.is_json)
