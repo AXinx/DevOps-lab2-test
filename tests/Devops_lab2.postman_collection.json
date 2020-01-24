@@ -294,7 +294,7 @@
 									"var jsonData = JSON.parse(responseBody);",
 									"// tests[\"Name must be Bender\"] = jsonData.first_name == \"Bender\";",
 									"// tests[\"last name  must be Rodriguez\"] = jsonData.last_name == \"Rodriguez\";",
-									"tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['The_Mathematics_of_Quantum_Neutrino_Fields'] == 8;",
+									"tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['math'] == 8;",
 									"//tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['20th_Century_History'] == 9;",
 									""
 								],
@@ -482,7 +482,7 @@
 									"//tests[\"Name must be Bender\"] = jsonData.first_name == \"Bender\";",
 									"//tests[\"last name  must be Rodriguez\"] = jsonData.last_name == \"Rodriguez\";",
 									"//tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['The_Mathematics_of_Quantum_Neutrino_Fields'] == 8;",
-									"tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['20th_Century_History'] == 9;",
+									"tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['history'] == 9;",
 									""
 								],
 								"type": "text/javascript"
