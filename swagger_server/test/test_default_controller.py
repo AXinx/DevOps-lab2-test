@@ -69,7 +69,6 @@ class TestDefaultController(BaseTestCase):
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
-        print(response.read())
         student_id = (response.json)
         print(student_id)
 
