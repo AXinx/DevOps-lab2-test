@@ -70,21 +70,12 @@ class TestDefaultController(BaseTestCase):
             data=json.dumps(body),
             content_type='application/json')
         student_id = (response.json)
-        print('*******')
-        print(student_id)
-        print('########')
 
         query_string = [('math', 9)]
         response = self.client.open(
             '/service-api/student/{student_id}'.format(student_id=student_id),
             method='GET',
             query_string=query_string)
-        print('second query')
-        print(response)
-        print(response.data.decode('utf-8'))
-        print(resonse.is_json)
-        print(response.json)
-        print('end')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
         self.assertTrue(response.is_json)
