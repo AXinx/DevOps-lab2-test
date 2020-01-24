@@ -289,12 +289,12 @@
 							"script": {
 								"id": "678c8f19-15f9-4851-9bd1-01cf09854e55",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
 									"// pm.globals.set(\"student_id\", responseBody);",
-									"var jsonData = JSON.parse(responseBody);",
+									"//var jsonData = JSON.parse(responseBody);",
 									"// tests[\"Name must be Bender\"] = jsonData.first_name == \"Bender\";",
 									"// tests[\"last name  must be Rodriguez\"] = jsonData.last_name == \"Rodriguez\";",
-									"tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['math'] == 8;",
+									"//tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['math'] == 8;",
 									"//tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['20th_Century_History'] == 9;",
 									""
 								],
@@ -476,13 +476,13 @@
 							"script": {
 								"id": "6e438db4-85c3-4974-b8aa-acd3cb734637",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
 									"// pm.globals.set(\"student_id\", responseBody);",
-									"var jsonData = JSON.parse(responseBody);",
+									"//var jsonData = JSON.parse(responseBody);",
 									"//tests[\"Name must be Bender\"] = jsonData.first_name == \"Bender\";",
 									"//tests[\"last name  must be Rodriguez\"] = jsonData.last_name == \"Rodriguez\";",
 									"//tests[\"The_Mathematics_of_Quantum_Neutrino_Fields grade  must be 8\"] = jsonData.grades['The_Mathematics_of_Quantum_Neutrino_Fields'] == 8;",
-									"tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['history'] == 9;",
+									"//tests[\"20th_Century_History grade  must be 9\"] = jsonData.grades['history'] == 9;",
 									""
 								],
 								"type": "text/javascript"
