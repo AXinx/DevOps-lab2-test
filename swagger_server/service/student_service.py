@@ -38,9 +38,13 @@ def get_student_by_id(student_id, subject):
     print(student)
     print('----')
     print(subject)
+    print('****')
+    print(student.grades)
     if not subject:
+        print('1')
         return student
     if subject in student.grades:
+        print('2')
         return student
      
 
