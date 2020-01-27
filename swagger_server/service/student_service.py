@@ -36,6 +36,8 @@ def get_student_by_id(student_id, subject):
         return student
     student = Student.from_dict(student)
     print(student)
+    print('----')
+    print(subject)
     if not subject:
         return student
     if subject in student.grades:
