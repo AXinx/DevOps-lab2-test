@@ -31,7 +31,9 @@ def add_student(student):
 
 
 def get_student_by_id(student_id, subject):
+    print(student_id)
     student = student_db.get(doc_id=int(student_id))
+    subject = string(subject)
     if not student:
         return student
     student = Student.from_dict(student)
