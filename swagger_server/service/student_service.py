@@ -35,8 +35,12 @@ def get_student_by_id(student_id, subject):
     if not student:
         return student
     student = Student.from_dict(student)
+    print(student)
     if not subject:
         return student
+    if subject in student.grades:
+        return student
+     
 
 
 def delete_student(student_id):

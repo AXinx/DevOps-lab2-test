@@ -76,6 +76,8 @@ class TestDefaultController(BaseTestCase):
             '/service-api/student/{student_id}'.format(student_id=student_id),
             method='GET',
             query_string=query_string)
+        print(query_string)
+        print(response.data.decode('utf-8'))
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
         self.assertTrue(response.is_json)
