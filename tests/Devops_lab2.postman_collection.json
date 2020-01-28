@@ -1329,7 +1329,7 @@
 							"script": {
 								"id": "dc9496ad-174e-4f25-aafe-33d63d7be3ad",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Status code is 405\"] = responseCode.code === 405;",
 									"// pm.globals.set(\"student_id\", responseBody);"
 								],
 								"type": "text/javascript"
