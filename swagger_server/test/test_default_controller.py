@@ -57,7 +57,6 @@ class TestDefaultController(BaseTestCase):
 
     def test_get_student_by_id(self):
         """Test case for get_student_by_id
-
         Find student by ID
         """
         body = Student()

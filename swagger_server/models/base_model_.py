@@ -24,7 +24,6 @@ class Model(object):
 
     def to_dict(self):
         """Returns the model properties as a dict
-
         :rtype: dict
         """
         result = {}
@@ -51,7 +50,6 @@ class Model(object):
 
     def to_str(self):
         """Returns the string representation of the model
-
         :rtype: str
         """
         return pprint.pformat(self.to_dict())
