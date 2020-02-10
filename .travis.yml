@@ -13,7 +13,6 @@ install:
 - pip install -r test-requirements.txt
 - pip install names
 - pip install nose
-- pip reinstall Werkzeug
 - pip install Flask-Testing
 before_script:
 - node --version
